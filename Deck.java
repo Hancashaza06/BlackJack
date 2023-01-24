@@ -10,16 +10,16 @@ import java.util.*;
 public class Deck {
       
       //arrayList of all unique cards
-      ArrayList<String> cards = new ArrayList<String>();
+   ArrayList<String> cards = new ArrayList<String>();
       //Stack for card randomization
-      Stack<String> deck = new Stack<String>();
+   Stack<String> deck = new Stack<String>();
       //random # generator to shuffle cards into deck
-      Random rand = new Random();
-      int shuffler; // created random #
+   Random rand = new Random();
+   int shuffler; // created random #
       
-      public Deck() {} // empty constructor
+   public Deck() {} // empty constructor
       
-      public void gatherCards() { // fills cards ArrayList
+   public void gatherCards() { // fills cards ArrayList
       
       String [] faces = {"ACE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "JACK", "QUEEN", "KING"};
       // array of card suits
@@ -27,30 +27,30 @@ public class Deck {
       
       for(int i = 0; i < suits.length; i++) { // for each suit
          for(int j = 0; j < faces.length; j++) { // for each face
-         Card cardName = new Card(faces[j], suits[i]); // card object
-         cards.add(cardName.cardName()); // adds unique card to cards ArrayList
+            Card cardName = new Card(faces[j], suits[i]); // card object
+            cards.add(cardName.cardName()); // adds unique card to cards ArrayList
          }
       } // end of for-loop
-      } // end of gatherCards
+   } // end of gatherCards
       
-      public void cardShuffler() { // creates stack of shuffled cards
+   public void cardShuffler() { // creates stack of shuffled cards
         
       for(int i = 0; i < 52; i++) { // adds cards randomly to stack
          shuffler = rand.nextInt(cards.size());
          deck.push(cards.get(shuffler)); // adds random card from cards to stack
          cards.remove(shuffler); // removes selected card from Arraylist cards
       }// end of for loop
-      } // end of card shuffler
+   } // end of card shuffler
       
-      public String draw() {
-         return deck.pop();
-      } // end of draw
+   public String draw() {
+      return deck.pop();
+   } // end of draw
       
-      public void deckChecker() { // checks amount of cards left in deck
+   public void deckChecker() { // checks amount of cards left in deck
       if(deck.size() < 10) {
-      System.out.println("Hold on. Reshuffling deck...");
-      gatherCards();
-      cardShuffler();
+         System.out.println("Hold on. Reshuffling deck...");
+         gatherCards();
+         cardShuffler();
       }
-      } // end deck checker
+   } // end deck checker
 } // end of deck
